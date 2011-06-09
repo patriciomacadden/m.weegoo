@@ -1,4 +1,12 @@
 MWeegoo::Application.routes.draw do
+  get "authentications/create"
+
+  match "/auth/:provider/callback" => "authentications#create"
+  
+  devise_for :users
+  
+  root :to => "main#index"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,10 @@
+<div data-role="header">
+  <h1>weegoo</h1>
+  
+  <% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :class => "ui-btn-right", "data-ajax" => false %>
+  <% end %>
+</div>
+
+<div data-role="content">
+</div>
