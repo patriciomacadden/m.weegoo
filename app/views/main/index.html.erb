@@ -1,10 +1,12 @@
-<div data-role="header">
-  <h1>weegoo</h1>
-  
-  <% if user_signed_in? %>
-    <%= link_to "Sign out", destroy_user_session_path, :class => "ui-btn-right", "data-ajax" => false %>
-  <% end %>
-</div>
 
-<div data-role="content">
-</div>
+<div id="main_map_canvas"></div>
+<script>
+  $(window).load(function()
+  {
+    var map = initialize_gmap("main_map_canvas");
+    $("#main_map_canvas").css("width", $(window).width());
+    $("#main_map_canvas").css("height", $(window).height() - $("div[data-role=header]").prop("offsetHeight"));
+    
+    create_and_add_marker_to_map_at_current_location(map, "<%= current_user.location %>");
+  });
+</script>

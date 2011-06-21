@@ -1,0 +1,16 @@
+<%= title t('views.points_of_interest.browse') %>
+
+<div data-role="content">
+  <ul data-role="listview">
+    <% @categories.each do |category| %>
+      <li>
+        <%= link_to category.name, browse_sub_categories_points_of_interest_path(:category_id => category.id) %>
+        <span class="ui-li-count"><%= category.points_of_interest.count %></span>
+      </li>
+    <% end %>
+    <li>
+      <%= link_to t('views.points_of_interest.all_categories'), map_path, 'data-ajax' => false %>
+      <span class="ui-li-count"><%= @categories.inject(0) { |sum, c| sum + c.points_of_interest.count } %></span>
+    </li>
+  </ul>
+</div>

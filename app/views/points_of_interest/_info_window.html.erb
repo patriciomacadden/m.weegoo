@@ -1,0 +1,34 @@
+<div class="info_window">
+  
+  <h1><%= link_to point_of_interest.name, point_of_interest, 'data-ajax' => false %></h1>
+  
+  <% if not point_of_interest.description.blank? %>
+    <div>
+      <strong><%=t 'simple_form.labels.description' %></strong>
+      <%= point_of_interest.description %>
+    </div>
+  <% end %>
+  
+  <div>
+    <strong><%=t 'simple_form.labels.category' %></strong>
+    <%= point_of_interest.category.name %>
+  </div>
+  
+  <div>
+    <strong><%=t 'simple_form.labels.sub_category' %></strong>
+    <%= point_of_interest.sub_category.name %>
+  </div>
+  
+  <% if point_of_interest.type == "Event" %>
+    <div>
+      <strong><%=t 'simple_form.labels.date' %></strong>
+      <%=l point_of_interest.date %>
+    </div>
+  
+    <div>
+      <strong><%=t 'simple_form.labels.time' %></strong>
+      <%=l point_of_interest.time, :format => :short %>
+    </div>
+  <% end %>
+  
+</div>

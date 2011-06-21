@@ -1,0 +1,46 @@
+<%= title @point_of_interest.name %>
+
+<div data-role="content">
+  <% if !@point_of_interest.description.blank? %>
+    <div data-role="fieldcontain">
+      <strong><%=t 'simple_form.labels.description' %></strong> <em><%= @point_of_interest.description %></em>
+    </div>
+  <% end %>
+  
+  <div data-role="fieldcontain">
+    <strong><%=t 'simple_form.labels.category' %></strong> <em><%= @point_of_interest.category.name %></em>
+  </div>
+  <div data-role="fieldcontain">
+    <strong><%=t 'simple_form.labels.sub_category' %></strong> <em><%= @point_of_interest.sub_category.name %></em>
+  </div>
+  
+  <% if @point_of_interest.type == "Event" %>
+    <div data-role="fieldcontain">
+      <strong><%=t 'simple_form.labels.date' %></strong> <em><%=l @point_of_interest.date %></em>
+    </div>
+    <div data-role="fieldcontain">
+      <strong><%=t 'simple_form.labels.time' %></strong> <em><%=l @point_of_interest.time, :format => :short %></em>
+    </div>
+  <% end %>
+  
+  <ul data-role="listview" data-inset="true">
+    <li>
+      <%= link_to_if @point_of_interest.been_users(current_user).count > 0, t('views.points_of_interest.been_users'), been_users_points_of_interest_path(@point_of_interest) %>
+      <span class="ui-li-count"><%= @point_of_interest.been_users(current_user).count %></span>
+    </li>
+    <li>
+      <%= link_to_if @point_of_interest.want_to_go_users(current_user).count > 0, t('views.points_of_interest.want_to_go_users'), want_to_go_users_points_of_interest_path(@point_of_interest) %>
+      <span class="ui-li-count"><%= @point_of_interest.want_to_go_users(current_user).count %></span>
+    </li>
+    <li>
+      <%= link_to_if @point_of_interest.been_friends(current_user).count > 0, t('views.points_of_interest.been_friends'), been_friends_points_of_interest_path(@point_of_interest) %>
+      <span class="ui-li-count"><%= @point_of_interest.been_friends(current_user).count %></span>
+    </li>
+    <li>
+      <%= link_to_if @point_of_interest.want_to_go_friends(current_user).count > 0, t('views.points_of_interest.want_to_go_friends'), want_to_go_friends_points_of_interest_path(@point_of_interest) %>
+      <span class="ui-li-count"><%= @point_of_interest.want_to_go_friends(current_user).count %></span>
+    </li>
+  </ul>
+</div>
+
+<%= render :partial => "points_of_interest/show_footer", :locals => { :point_of_interest => @point_of_interest } %>

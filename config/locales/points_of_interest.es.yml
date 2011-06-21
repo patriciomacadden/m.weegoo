@@ -1,0 +1,26 @@
+es:
+  views:
+    points_of_interest:
+      all_categories: Todas las categorías
+      all_sub_categories: Todas las sub categorías
+      been_friends: Amigos que estuvieron aquí
+      been_here: Estuve aquí
+      been_users: Usuarios que estuvieron aquí
+      browse: Navegar
+      dont_want_to_go: No quiero ir
+      everything: Todo
+      events: Eventos
+      filter: Filtrar
+      friends_that_have_been_at: "Amigos que estuvieron en"
+      friends_that_want_to_go_at: "Amigos que quieren estar en"
+      new_event: Nuevo evento
+      new_venue: Nuevo lugar
+      not_been_here: No estuve aquí
+      people_that_have_been_at: "Personas que estuvieron en"
+      people_that_want_to_go_to: "Personas que quieren estar en"
+      search: Buscar
+      show_as: Ver como
+      venues: Lugares
+      want_to_go: Quiero ir
+      want_to_go_friends: Amigos que quieren estar aquí
+      want_to_go_users: Usuarios que quieren estar aquí

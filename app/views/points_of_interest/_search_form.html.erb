@@ -1,0 +1,15 @@
+<%= form_tag points_of_interest_index_path, :method => "get", 'data-ajax' => false do %>
+  <div data-role="fieldcontain">
+    <%= label_tag t('views.points_of_interest.filter') %>:
+    <%= select_tag :type, options_for_select({t('views.points_of_interest.everything') => "Everything", t('views.points_of_interest.venues') => "Venue", t('views.points_of_interest.events') => "Event"}, params[:type] ? params[:type] : "Everything") %>
+  </div>
+  
+  <div data-role="fieldcontain">
+    <%= label_tag t('views.points_of_interest.search') %>:
+    <%= text_field_tag :search, params[:search] %>
+  </div>
+  
+  <div data-role="fieldcontain">
+    <%= submit_tag t('views.points_of_interest.search') %>
+  </div>
+<% end %>

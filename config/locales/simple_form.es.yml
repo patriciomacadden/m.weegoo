@@ -1,0 +1,37 @@
+es:
+  helpers:
+    submit:
+      event:
+        create: "Crear evento"
+        update: "Actualizar evento"
+      venue:
+        create: "Crear lugar"
+        update: "Actualizar lugar"
+  
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Some errors were found, please take a look:"
+    # Labels and hints examples
+    labels:
+    #   password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail para efetuar o sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+      name: Nombre
+      description: Descripción
+      category: Categoría
+      sub_category: Subcategoría
+    # hints:
+    #   username: 'User name to sign in.'
+    #   password: 'No special characters, please.'
+

@@ -1,0 +1,17 @@
+<%= title t('views.main.browse') %>
+
+<div data-role="content">
+  <ul data-role="listview">
+    <% @sub_categories.each do |sub_category| %>
+      <li>
+        <%= link_to_if sub_category.points_of_interest.count > 0, sub_category.name, sub_categories_map_path(:sub_category_id => sub_category.id), 'data-ajax' => false %>
+        <span class="ui-li-count"><%= sub_category.points_of_interest.count %></span>
+      </li>
+    <% end %>
+    <li>
+      <% sum = @sub_categories.inject(0) { |sum, s| sum + s.points_of_interest.count } %>
+      <%= link_to_if sum > 0, t('views.points_of_interest.all_sub_categories'), categories_map_path(:category_id => @category.id), 'data-ajax' => false %>
+      <span class="ui-li-count"><%= sum %></span>
+    </li>
+  </ul>
+</div>

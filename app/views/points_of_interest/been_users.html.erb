@@ -1,0 +1,3 @@
+<% title "#{t('views.points_of_interest.people_that_have_been_at')} #{@point_of_interest.name}" %>
+
+<%= render :partial => "points_of_interest/users_list", :locals => { :users => @users } %>

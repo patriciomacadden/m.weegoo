@@ -4,7 +4,7 @@ class BeenAtActivity < Activity
   private
   
   def broadcast
-    message = "I've been at #{self.point_of_interest.name}: #{points_of_interest_url(self.point_of_interest)}"
+      message = "I've been at #{self.point_of_interest.name}: #{points_of_interest_url(self.point_of_interest)}"
     tweet(message)
     post(message)
   end

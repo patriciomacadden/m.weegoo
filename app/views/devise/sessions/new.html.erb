@@ -1,35 +1,33 @@
-<div data-role="header">
-  <h1>weegoo - Sign in</h1>
-</div>
+<% title "weegoo - "+t('views.devise.sign_in') %>
 
 <div data-role="content">
   
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { 'data-ajax'.to_sym => false }) do |f| %>
 
+    <div data-role="fieldcontain">
+      <%= f.label :username, t('models.user.username') %>
+      <%= f.email_field :username %>
+    </div>
+    
+    <div data-role="fieldcontain">
+      <%= f.label :password, t('models.user.password') %>
+      <%= f.password_field :password %>
+    </div>
+    
+    <div data-role="fieldcontain">
+      <% if devise_mapping.rememberable? -%>
+        <%= f.check_box :remember_me %> <%= f.label :remember_me, t('models.user.remember_me') %>
+      <% end -%>
+    </div>
+    
+    <div data-role="fieldcontain"><%= f.submit t('views.devise.sign_in') %></div>
+  <% end %>
+  
   <div data-role="fieldcontain">
-  <%= f.label :username %>
-  <%= f.email_field :username %>
-  </div>
-
-  <div data-role="fieldcontain">
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  </div>
-
-  <div data-role="fieldcontain">
-  <% if devise_mapping.rememberable? -%>
-    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-  <% end -%>
+    <fieldset class="ui-grid-a">
+      <div class="ui-block-a"><%= link_to t('views.devise.sign_in_with_facebook'), "/auth/facebook", :class => "ui-btn", "data-ajax" => false %></div>
+      <div class="ui-block-b"><%= link_to t('views.devise.sign_in_with_twitter'), "/auth/twitter", :class => "ui-btn", "data-ajax" => false %></div>
+    </fieldset>
   </div>
   
-  <div data-role="fieldcontain"><%= f.submit "Sign in" %></div>
-<% end %>
-
-<div data-role="fieldcontain">
-  <fieldset class="ui-grid-a">
-    <div class="ui-block-a"><%= link_to "Sign in with Facebook", "/auth/facebook", :class => "ui-btn", "data-ajax" => false %></div>
-    <div class="ui-block-b"><%= link_to "Sign in with Twitter", "/auth/twitter", :class => "ui-btn", "data-ajax" => false %></div>
-  </fieldset>
-</div>
-
 </div>

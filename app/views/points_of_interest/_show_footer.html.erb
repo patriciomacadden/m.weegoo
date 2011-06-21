@@ -1,0 +1,33 @@
+<div data-role="footer">
+  <div data-role="navbar">
+    <ul>
+      <% if point_of_interest.can_edit?(current_user) %>
+        <% if point_of_interest.type == "Venue" %>
+          <li><%= link_to t('views.scaffold.edit'), edit_venue_path(point_of_interest) %></li>
+        <% else %>
+          <li><%= link_to t('views.scaffold.edit'), edit_event_path(point_of_interest) %></li>
+        <% end %>
+      <% end %>
+      
+      <% if point_of_interest.can_delete?(current_user) %>
+        <% if point_of_interest.type == "Venue" %>
+          <li><%= link_to t('views.scaffold.delete'), point_of_interest, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to t('views.scaffold.delete'), point_of_interest, :method => :delete %></li>
+        <% end %>
+      <% end %>
+      
+      <% if !current_user.been_at(point_of_interest) %>
+        <li><%= link_to t('views.points_of_interest.been_here'), been_points_of_interest_path(point_of_interest), 'data-ajax' => false %></li>
+        
+        <% if !current_user.want_to_go_to(point_of_interest) %>
+          <li><%= link_to t('views.points_of_interest.want_to_go'), want_to_go_points_of_interest_path(point_of_interest), 'data-ajax' => false %></li>
+        <% else %>
+          <li><%= link_to t('views.points_of_interest.dont_want_to_go'), dont_want_to_go_points_of_interest_path(point_of_interest), 'data-ajax' => false %></li>
+        <% end %>
+      <% else %>
+        <li><%= link_to t('views.points_of_interest.not_been_here'), not_been_points_of_interest_path(point_of_interest), 'data-ajax' => false %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

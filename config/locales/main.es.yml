@@ -1,0 +1,7 @@
+es:
+  views:
+    main:
+      browse: Navegar
+      home: Inicio
+      search: Buscar
+      sign_out: Cerrar sesión

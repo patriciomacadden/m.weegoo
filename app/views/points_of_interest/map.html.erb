@@ -1,0 +1,9 @@
+<%= title t('views.points_of_interest.all_categories') %>
+
+<% if @points_of_interest.size > 0 %>
+
+  <%= render :partial => "points_of_interest/map", :locals => { :points_of_interest => @points_of_interest, :html_canvas_id => "map_canvas_all" } %>
+  
+  <%= render :partial => "points_of_interest/map_footer" %>
+  
+<% end %>

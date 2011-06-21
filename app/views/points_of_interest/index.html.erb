@@ -1,0 +1,15 @@
+<%= title t('views.points_of_interest.search') %>
+
+<% if @points_of_interest.size > 0 %>
+
+  <%= render :partial => "points_of_interest/map", :locals => { :points_of_interest => @points_of_interest, :html_canvas_id => "map_canvas" } %>
+  
+  <%= render :partial => "points_of_interest/map_footer" %>
+  
+<% else %>
+  
+  <div data-role="content">
+    <%= render "search_form" %>
+  </div>
+  
+<% end %>

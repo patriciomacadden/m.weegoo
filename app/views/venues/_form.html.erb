@@ -1,0 +1,25 @@
+<div data-role="content">
+  <%= simple_form_for @venue, :html => { 'data-ajax' => false } do |f| %>
+    <%= f.error_notification %>
+    
+    <div class="inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.association :category %>
+      <%= f.association :sub_category %>
+      <%= f.input :latitude, :as => :hidden %>
+      <%= f.input :longitude, :as => :hidden %>
+    </div>
+    
+    <div data-role="fieldcontain">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+$(window).load(function()
+{
+  set_latitude_and_longitude("#venue_latitude", "#venue_longitude", "<%= current_user.location %>");
+});
+</script>

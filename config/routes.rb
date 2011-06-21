@@ -1,4 +1,30 @@
 MWeegoo::Application.routes.draw do
+  get "update_sub_categories/:category_id", :to => "ajax#update_sub_categories"
+  
+  get "points_of_interest/browse", :to => "points_of_interest#browse_categories", :as => "browse_categories_points_of_interest"
+  get "points_of_interest/browse/:category_id", :to => "points_of_interest#browse_sub_categories", :as => "browse_sub_categories_points_of_interest"
+  
+  get "points_of_interest/map", :to => "points_of_interest#map", :as => "map"
+  get "points_of_interest/categories_map/:category_id", :to => "points_of_interest#categories_map", :as => "categories_map"
+  get "points_of_interest/sub_categories_map/:sub_category_id", :to => "points_of_interest#sub_categories_map", :as => "sub_categories_map"
+  
+  resources :points_of_interest do
+    member do
+      get "been"
+      get "not_been"
+      get "want_to_go"
+      get "dont_want_to_go"
+
+      get "been_users"
+      get "want_to_go_users"
+      get "been_friends"
+      get "want_to_go_friends"
+    end
+  end
+  
+  resources :venues
+  resources :events
+  
   get "authentications/create"
 
   match "/auth/:provider/callback" => "authentications#create"

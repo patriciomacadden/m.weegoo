@@ -1,0 +1,31 @@
+<div id="<%= html_canvas_id %>"></div>
+<script>
+  $(window).load(function()
+  {
+    var map = initialize_gmap("<%= html_canvas_id %>");
+    var width = $(window).width();
+    var height = $(window).height();
+    if ($("div[data-role=header]").prop("offsetHeight"))
+    {
+      height -= $("div[data-role=header]").prop("offsetHeight");
+    }
+    if ($("div[data-role=footer]").prop("offsetHeight"))
+    {
+      height -= $("div[data-role=footer]").prop("offsetHeight");
+    }
+    $("#<%= html_canvas_id %>").css("width", width);
+    $("#<%= html_canvas_id %>").css("height", height);
+    
+    create_and_add_marker_to_map_at_current_location(map, "<%= current_user.location %>");
+    
+    <% points_of_interest.each do |point_of_interest| %>
+      latlng = new google.maps.LatLng("<%= point_of_interest.latitude %>", "<%= point_of_interest.longitude %>");
+      marker_<%= point_of_interest.id %> = create_marker_image(latlng, false, '<%= request.protocol+request.host_with_port+image_path("category_#{point_of_interest.category_id}.png") %>');
+      add_marker_to_map(map, marker_<%= point_of_interest.id %>);
+      
+      info_window_<%= point_of_interest.id %> = create_info_window('<%= escape_javascript(render :partial => "points_of_interest/info_window", :locals => { :point_of_interest => point_of_interest }) %>');
+    
+      open_info_window_on_click(map, marker_<%= point_of_interest.id %>, info_window_<%= point_of_interest.id %>);
+    <% end %>
+  });
+</script>
