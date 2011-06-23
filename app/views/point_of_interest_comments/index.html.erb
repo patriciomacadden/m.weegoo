@@ -1,0 +1,19 @@
+<%= title t('views.points_of_interest.point_of_interest_comments') %>
+
+<div data-role="content">
+  <ul data-role="listview">
+    <% @point_of_interest_comments.each do |point_of_interest_comment| %>
+      <li>
+        <strong><%= point_of_interest_comment.user.username %> (<%= point_of_interest_comment.user.full_name %>)</strong> <em style="font-weight: normal"><%= point_of_interest_comment.comment %></em>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div data-role="footer">
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to t('views.points_of_interest.new_point_of_interest_comment'), new_points_of_interest_point_of_interest_comment_path(@point_of_interest) %></li>
+    </ul>
+  </div>
+</div>

@@ -14,10 +14,12 @@ es:
       friends_that_have_been_at: "Amigos que estuvieron en"
       friends_that_want_to_go_at: "Amigos que quieren estar en"
       new_event: Nuevo evento
+      new_point_of_interest_comment: Nuevo comentario
       new_venue: Nuevo lugar
       not_been_here: No estuve aquí
       people_that_have_been_at: "Personas que estuvieron en"
       people_that_want_to_go_to: "Personas que quieren estar en"
+      point_of_interest_comments: Comentarios
       search: Buscar
       show_as: Ver como
       venues: Lugares

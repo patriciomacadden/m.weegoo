@@ -20,6 +20,8 @@ MWeegoo::Application.routes.draw do
       get "been_friends"
       get "want_to_go_friends"
     end
+    
+    resources :point_of_interest_comments
   end
   
   resources :venues

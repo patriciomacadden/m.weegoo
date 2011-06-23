@@ -1,0 +1,11 @@
+<%= simple_form_for([@point_of_interest, @point_of_interest_comment], :url => points_of_interest_point_of_interest_comments_path(@point_of_interest), :html => { 'data-ajax' => false }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :comment %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, t('views.points_of_interest.new_point_of_interest_comment') %>
+  </div>
+<% end %>

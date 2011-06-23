@@ -31,6 +31,7 @@ es:
       description: Descripción
       category: Categoría
       sub_category: Subcategoría
+      comment: Comentario
     # hints:
     #   username: 'User name to sign in.'
     #   password: 'No special characters, please.'

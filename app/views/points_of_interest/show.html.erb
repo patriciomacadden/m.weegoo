@@ -41,6 +41,12 @@
       <span class="ui-li-count"><%= @point_of_interest.want_to_go_friends(current_user).count %></span>
     </li>
   </ul>
+  
+  <ul data-role="listview" data-inset="true">
+    <li>
+      <%= link_to t('views.points_of_interest.comments'), points_of_interest_point_of_interest_comments_path(@point_of_interest) %>
+    </li>
+  </ul>
 </div>
 
 <%= render :partial => "points_of_interest/show_footer", :locals => { :point_of_interest => @point_of_interest } %>

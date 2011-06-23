@@ -1,0 +1,2 @@
+module PointOfInterestCommentsHelper
+end
